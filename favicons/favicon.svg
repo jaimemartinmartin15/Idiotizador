@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path stroke="#000000" fill="#4e59ff" d="M26 98L74 98C78 62 22 62 26 98" stroke-linecap="round" />
+  <circle stroke-width="0.6" stroke="#000000" fill="#ffb17c" cx="26" cy="41" r="7" />
+  <circle stroke-width="0.6" stroke="#000000" fill="#ffb17c" cx="74" cy="41" r="7" />
+  <path stroke="#000000" fill="#e8b999" d="M26 22L26 50C36 74 64 74 74 50L74 22C74 -6 26 -6 26 22" stroke-linecap="round" stroke-linejoin="bevel" />
+  <path stroke-width="2" stroke="#000000" fill="#ffffff00" d="M21.2 22.8L12.2 17.3 13.8 24.7 4.1 25.8 9.2 33.2 2.1 38.2 14.7 40.3" stroke-linecap="round" stroke-linejoin="round" />
+  <path stroke="#000000" fill="#ffffff00" d="M79.3 26.8L86.2 20.8 85.3 27.5 94.1 27.5 87.3 35.5 94.9 37.2 86.8 42.3" stroke-linecap="round" stroke-linejoin="round" />
+  <path stroke-width="1.6" stroke="#444444" fill="#8e8e8e" d="M26 36L33 27 67 27 74 37 74 22C74 -6 26 -6 26 22Z" stroke-linecap="round" stroke-linejoin="bevel" />
+  <circle stroke-width="0.7" stroke="#000000" fill="#ffffff" cx="41" cy="40" r="6" />
+  <circle cx="41" cy="40" r="1.5" />
+  <circle stroke-width="0.7" stroke="#000000" fill="#ffffff" cx="59" cy="40" r="6" />
+  <circle cx="59" cy="40" r="1.5" />
+  <path stroke-width="0.8" stroke="#000000" fill="#00000080" d="M37 50C44 53 56 53 63 50 60 64 40 64 37 50" stroke-linecap="round" stroke-linejoin="bevel" />
+</svg>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Idiotizador</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Juega al idiotizador. Habla y escúchate con retardo. Verás que risa.">
+  <meta name="keywords" content="idiotizador, app sonido, hormiguero">
+  <meta name="author" content="Jaime Martín Martín">
+
+  <!-- favicons -->
+  <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicons/favicon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicons/favicon-144x144.png">
+  <link rel="icon" type="image/png" href="favicons/favicon-192x192.png" sizes="192x192">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://jaimeelingeniero.es/idiotizador">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Idiotizador">
+  <meta property="og:description" content="Juega al idiotizador. Habla y escúchate con retardo. Verás que risa.">
+  <meta property="og:image" content="https://jaimeelingeniero.es/idiotizador/favicons/favicon-192x192.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="jaimeelingeniero.es">
+  <meta property="twitter:url" content="https://jaimeelingeniero.es/idiotizador">
+  <meta name="twitter:title" content="Idiotizador">
+  <meta name="twitter:description" content="Juega al idiotizador. Habla y escúchate con retardo. Verás que risa.">
+  <meta name="twitter:image" content="https://jaimeelingeniero.es/idiotizador/favicons/favicon-192x192.png">
+
+  <style>
+    html {
+      background-color: #F5F5F5;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: 100dvh;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .description {
+      background-color: #1E3A5F;
+      border: 2px solid black;
+      color: white;
+      padding: 15px;
+      margin: 0 15px;
+      border-radius: 10px;
+    }
+
+    .description h2 {
+      font-size: 1rem;
+      margin: 0 0 10px 0;
+    }
+
+    .description ul {
+      padding-left: 10px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.8rem;
+    }
+
+    .microphone {
+      max-height: 80px;
+      margin-bottom: 10px;
+    }
+
+    @keyframes speak {
+      0% {
+        opacity: 0.3;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.1;
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.2;
+      }
+    }
+
+    .microphone .speaking {
+      opacity: 0;
+    }
+
+    .microphone .speaking--active {
+      animation: speak 0.6s infinite ease-in-out;
+    }
+
+    #stopButton,
+    #startButton {
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #1E3A5F;
+      color: white;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 250px;
+      margin-top: 20px;
+    }
+
+    .range-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .range-group input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+    }
+
+    .range-group input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+      background: #1E3A5F;
+      border-radius: 5px;
+    }
+
+    .range-group input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #1E3A5F;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-top: -5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Idiotizador</h1>
+
+  <div class="description">
+    <h2>Cómo funciona:</h2>
+    <ul>
+      <li>Se accede al micrófono del navegador</li>
+      <li>El audio se captura</li>
+      <li>Se reproduce por los altavoces con un retraso</li>
+    </ul>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" class="microphone">
+    <line stroke-width="110" stroke="#000000" x1="100" y1="115" x2="100" y2="212" stroke-linecap="round" />
+    <path stroke-width="17" stroke="#000000" fill="#ffffff00" d="M15 200C10 340 190 340 185 200"
+      stroke-linecap="round" />
+    <line stroke-width="17" stroke="#000000" x1="100" y1="305" x2="100" y2="390" stroke-linecap="round" />
+    <line stroke-width="17" stroke="#000000" x1="40" y1="390" x2="160" y2="390" stroke-linecap="round" />
+    <line class="speaking" stroke-width="17" stroke="#000000" x1="30" y1="30" x2="50" y2="50" stroke-linecap="round" />
+    <line class="speaking" stroke-width="17" stroke="#000000" x1="100" y1="10" x2="100" y2="38"
+      stroke-linecap="round" />
+    <line class="speaking" stroke-width="17" stroke="#000000" x1="150" y1="50" x2="170" y2="30"
+      stroke-linecap="round" />
+  </svg>
+
+  <button id="startButton">Capturar audio</button>
+  <button id="stopButton" style="display: none;">Detener</button>
+
+  <div class="controls">
+    <div class="range-group">
+      <label for="delay">RETRASO</label>
+      <input type="range" id="delay" min="0" max="5000" value="500">
+    </div>
+
+    <div class="range-group">
+      <label for="gain">VOLUMEN</label>
+      <input type="range" id="gain" min="0" max="50" value="1">
+    </div>
+  </div>
+
+  <script type="module">
+    const delayEl = document.querySelector('input#delay');
+    const gainEl = document.querySelector('input#gain');
+
+    let microphoneStream;
+    let microphoneSource;
+    let audioContext;
+    let delayNode;
+    let gainNode;
+
+    delayEl.addEventListener('input', function () {
+      if (delayNode) {
+        delayNode.delayTime.value = (+this.value) / 1000;
+      }
+    });
+
+    gain.addEventListener('input', function () {
+      if (gainNode) {
+        gainNode.gain.value = gainEl.value;
+      }
+    });
+
+    document.getElementById('startButton').addEventListener('click', async function () {
+      try {
+        // Audio context graph
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        microphoneStream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true,
+          }
+        });
+
+        microphoneSource = audioContext.createMediaStreamSource(microphoneStream);
+
+        delayNode = audioContext.createDelay(5);
+        delayNode.delayTime.value = (+delayEl.value) / 1000;
+        gainNode = audioContext.createGain();
+        gainNode.gain.value = gainEl.value;
+
+        microphoneSource.connect(delayNode).connect(gainNode).connect(audioContext.destination);
+
+        // UI
+        document.querySelectorAll('.speaking').forEach(e => e.classList.add('speaking--active'));
+        this.style.display = 'none';
+        document.getElementById('stopButton').style.display = 'initial'
+      } catch (e) {
+        alert(`Ha habido un error: ${e.message}`)
+      }
+    });
+
+    document.getElementById('stopButton').addEventListener('click', function () {
+      try {
+        if (microphoneStream) {
+          microphoneStream.getTracks().forEach(track => track.stop())
+          microphoneStream = undefined;
+        }
+
+        if (microphoneSource) {
+          microphoneSource.disconnect();
+          microphoneSource = undefined;
+        }
+
+        if (delayNode) {
+          delayNode.disconnect();
+          delayNode = undefined;
+        }
+
+        if (gainNode) {
+          gainNode.disconnect();
+          gainNode = undefined;
+        }
+
+        if (audioContext) {
+          audioContext.close();
+          audioContext = undefined;
+        }
+
+        // UI
+        document.querySelectorAll('.speaking').forEach(e => e.classList.remove('speaking--active'));
+        this.style.display = 'none';
+        document.getElementById('startButton').style.display = 'initial'
+      } catch (e) {
+        alert(`Ha habido un error: ${e.message}`)
+      }
+    })
+  </script>
+</body>
+
+</html>
