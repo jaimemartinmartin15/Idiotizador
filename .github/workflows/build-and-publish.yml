@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p dist
           npx html-minifier-terser index.html -o dist/index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true
-          cp favicons dist/favicons
+          cp favicons dist/favicons/
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
