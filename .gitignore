@@ -1,0 +1,5 @@
+node_modules
+.npmrc
+package*
+aws-deploy-builder-cloudfront-function*
+dist
