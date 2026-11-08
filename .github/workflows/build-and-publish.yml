@@ -20,7 +20,9 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@jaimemartinmartin15"
       - name: Install
-        run: npm install @angular/cli @jaimemartinmartin15/jei-devkit-angular-builders@5.2.1 html-minifier-terser --save-dev
+        run: |
+          npm install @jaimemartinmartin15/jei-devkit-angular-builders@5.2.1 html-minifier-terser --save-dev
+          npm install -g @angular/cli
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_REGISTRY_TOKEN }}
       - name: Build
