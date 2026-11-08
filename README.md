@@ -31,5 +31,3 @@ When pushing the tag to the remote, it will trigger the workflow **build-and-pub
 ### build-and-publish.yml
 
 Optimices the index.html and deploys the application to the server.
-
-Basically, it copies the optimized files and puts them in `idiotizador/` folder in the server.

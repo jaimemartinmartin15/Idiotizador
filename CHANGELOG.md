@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.1
+
+- Fix favicons.
+- Use aws-deploy builder.
+
 ## 1.0.0
 
 Initial release:
